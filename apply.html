@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Dorm - AAU Dorm Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="university-info">
+                    <img src="assets/images/aau logo 1.jpg"
+                         alt="AAU Logo" class="logo">
+                    <div class="university-name">
+                        <h1>ADDIS ABABA UNIVERSITY</h1>
+                        <p class="university-subtitle">Dormitory Application Form</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="dorm-availability.html"><i class="fas fa-bed"></i> Dorm Availability</a></li>
+                        <li><a href="apply.html" class="active"><i class="fas fa-edit"></i> Apply for Dorm</a></li>
+                        <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+                        <li><a href="status.html"><i class="fas fa-search"></i> Check Status</a></li>
+                        <li><a href="waiting-list.html"><i class="fas fa-list"></i> Waiting List</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <div class="form-container">
+            <h1 class="form-title">Dormitory Registration Form</h1>
+            
+            <div class="alert alert-success" id="successMessage" style="display: none;">
+                <i class="fas fa-check-circle"></i> Application submitted successfully!
+            </div>
+            
+            <div class="alert alert-error" id="errorMessage" style="display: none;">
+                <i class="fas fa-exclamation-circle"></i> Please fill all required fields correctly.
+            </div>
+
+            <form id="dormApplicationForm">
+                <!-- Personal Information -->
+                <h3 style="color: #0066CC; margin: 30px 0 20px; padding-bottom: 10px; border-bottom: 1px solid #e0e0e0;">
+                    <i class="fas fa-user"></i> Personal Information
+                </h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">First Name *</label>
+                        <input type="text" id="firstName" class="form-input" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="fatherName">Father Name *</label>
+                        <input type="text" id="fatherName" class="form-input" placeholder="Father Name" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" class="form-input" placeholder="Last Name" required>
+                        </div>
+                    <div class="form-group">
+                        <label class="form-label" for="gender">Gender *</label>
+                        <select id="gender" class="form-input" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Student Information -->
+                <h3 style="color: #0066CC; margin: 30px 0 20px; padding-bottom: 10px; border-bottom: 1px solid #e0e0e0;">
+                    <i class="fas fa-graduation-cap"></i> Student Information
+                </h3>
+
+                <div class="form-group">
+                    <label class="form-label" for="studentId">Student ID *</label>
+                    <input type="text" id="studentId" class="form-input" placeholder="UGR/0000/00" required>
+                    <small style="color: #666; font-size: 12px;">Format: UGR/YYYY/XX</small>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="department">Department *</label>
+                        <input type="text" id="department" class="form-input" placeholder="Department" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="yearOfStudy">Year of Study *</label>
+                        <select id="yearOfStudy" class="form-input" required>
+                            <option value="">Select Year</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="5">5th Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <h3 style="color: #0066CC; margin: 30px 0 20px; padding-bottom: 10px; border-bottom: 1px solid #e0e0e0;">
+                    <i class="fas fa-address-book"></i> Contact Information
+                </h3>
+
+                <div class="form-group">
+                    <label class="form-label" for="telephone">Telephone *</label>
+                    <div style="display: flex; gap: 10px;">
+                        <select id="countryCode" class="form-input" style="width: 100px;">
+                            <option value="+251">+251</option>
+                            <option value="+1">+1</option>
+                            <option value="+44">+44</option>
+                        </select>
+                        <input type="tel" id="telephone" class="form-input" placeholder="Telephone" required style="flex: 1;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email *</label>
+                    <input type="email" id="email" class="form-input" placeholder="Valid and Working Email" required>
+                </div>
+
+                <!-- Dorm Preference -->
+                <h3 style="color: #0066CC; margin: 30px 0 20px; padding-bottom: 10px; border-bottom: 1px solid #e0e0e0;">
+                    <i class="fas fa-bed"></i> Dorm Preference
+                </h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="preferredFloor">Preferred Floor</label>
+                        <select id="preferredFloor" class="form-input">
+                          <option value="">Any Floor</option>
+                            <option value="0">Ground Floor</option>
+                            <option value="1">1st Floor</option>
+                            <option value="2">2nd Floor</option>
+                            <option value="3">3rd Floor</option>
+                            <option value="4">4th Floor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="specificDorm">Specific Dorm Request (Optional)</label>
+                        <input type="text" id="specificDorm" class="form-input" placeholder="e.g., 112, 215">
+                    </div>
+                </div>
+
+                <!-- Photo Upload -->
+                <h3 style="color: #0066CC; margin: 30px 0 20px; padding-bottom: 10px; border-bottom: 1px solid #e0e0e0;">
+                    <i class="fas fa-camera"></i> Photo Upload
+                </h3>
+
+                <div class="form-group">
+                    <label class="form-label">Student Photo *</label>
+                    <div class="photo-upload" onclick="document.getElementById('photoInput').click()">
+                        <img id="photoPreview" class="photo-preview" alt="Preview">
+                        <div id="uploadArea">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <p>Click to upload student photo</p>
+                            <p style="font-size: 12px; color: #666;">Maximum size: 2MB</p>
+                        </div>
+                    </div>
+                    <input type="file" id="photoInput" accept="image/*" style="display: none;" onchange="previewPhoto(event)" required>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="form-group">
+                    <div style="display: flex; align-items: start; gap: 10px; margin: 20px 0;">
+                        <input type="checkbox" id="terms" required style="margin-top: 5px;">
+                        <label for="terms" style="font-size: 14px;">
+                            I hereby declare that all information provided is true and correct. 
+                            I agree to abide by the dormitory rules and regulations of Addis Ababa University.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-submit">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                    <button type="reset" class="btn btn-cancel">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Registration Procedure -->
+        <div class="info-card" style="margin-top: 40px;">
+            <h3><i class="fas fa-info-circle"></i> Registration Procedure</h3>
+            <ol style="margin: 15px 0 0 20px; color: #666;">
+                <li>Fill in all required fields accurately</li>
+                <li>Upload a recent passport-sized photograph</li>
+                <li>Submit the application form</li>
+                <li>You will receive an application ID via email</li>
+                <li>Check your application status using the application ID</li>
+                <li>If approved, you will receive dorm allocation details</li>
+                <li>Report to the allocated dorm within 7 days of approval</li>
+            </ol>
+        </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Addis Ababa University</h3>
+                    <p>Dormitory Management System</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 6 Kilo, Addis Ababa</p>
+                    <p><i class="fas fa-phone"></i> +251 11 123 4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="apply.html">Apply</a>
+                    <a href="status.html">Check Status</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Addis Ababa University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function previewPhoto(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('photoPreview');
+            const uploadArea = document.getElementById('uploadArea');
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    uploadArea.style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        document.getElementById('dormApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            const requiredFields = document.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#dc3545';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+
+            // Validate student ID format
+            const studentId = document.getElementById('studentId').value;
+            const idPattern = /^UGR\/\d{4}\/\d{2}$/;
+            if (!idPattern.test(studentId)) {
+                isValid = false;
+                document.getElementById('studentId').style.borderColor = '#dc3545';
+                alert('Student ID must be in format: UGR/YYYY/XX');
+            }
+
+            if (isValid) {
+                // Show success message
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                
+                // Generate application ID
+                const appId = 'APP-' + Date.now().toString().slice(-8);
+                alert('Application submitted successfully!\nYour Application ID: ' + appId + '\nPlease save this ID for status checking.');
+                
+                // Reset form
+                setTimeout(() => {
+                    document.getElementById('dormApplicationForm').reset();
+                    document.getElementById('photoPreview').style.display = 'none';
+                    document.getElementById('uploadArea').style.display = 'block';
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            }
+        });
+
+        // Reset border color on input
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('input', function() {
+                this.style.borderColor = '#ddd';
+            });
+        });
+    </script>
+</body>
+</html>

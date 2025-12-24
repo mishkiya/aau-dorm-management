@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addis Ababa University - Dorm Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="university-info">
+                    <img src="assets/images/aau logo 1.jpg"
+                         alt="AAU Logo" class="logo">
+                    <div class="university-name">
+                        <h1>ADDIS ABABA UNIVERSITY</h1>
+                        <p class="university-subtitle">Dormitory Management System</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="dorm-availability.html"><i class="fas fa-bed"></i> Dorm Availability</a></li>
+                        <li><a href="apply.html"><i class="fas fa-edit"></i> Apply for Dorm</a></li>
+                        <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+                        <li><a href="status.html"><i class="fas fa-search"></i> Check Status</a></li>
+                        <li><a href="waiting-list.html"><i class="fas fa-list"></i> Waiting List</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to AAU Dormitory Management System</h2>
+                <p>Streamlining dormitory allocation for Addis Ababa University students</p>
+                <div class="hero-buttons">
+                    <a href="apply.html" class="btn btn-primary">Apply for Dorm</a>
+                    <a href="dorm-availability.html" class="btn btn-secondary">Check Availability</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <i class="fas fa-building"></i>
+                    <h3>200</h3>
+                    <p>Total Dorms</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>1200</h3>
+                    <p>Students Accommodated</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-bed"></i>
+                    <h3>180</h3>
+                    <p>Available Beds</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>45</h3>
+                    <p>On Waiting List</p>
+                </div>
+            </div>
+        </section>
+        <!-- Quick Links Section -->
+        <section class="quick-links-section">
+            <h2 class="section-title">Quick Links</h2>
+            <div class="quick-links">
+                <a href="apply.html" class="quick-link">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Apply for Dorm</span>
+                </a>
+                <a href="status.html" class="quick-link">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Check Application Status</span>
+                </a>
+                <a href="dorm-availability.html" class="quick-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Dorm Availability Schedule</span>
+                </a>
+                <a href="waiting-list.html" class="quick-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Waiting List Position</span>
+                </a>
+                <a href="admin.html" class="quick-link">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Dorm Registration Form</span>
+                </a>
+                <a href="guide.html" class="quick-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Registration Procedure</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Dorm Overview -->
+        <section class="dorm-overview">
+            <h2 class="section-title">Dormitory Overview</h2>
+            <div class="floors-container">
+                <!-- Floor 0 (Ground) -->
+                <div class="floor-card">
+                    <h3>Ground Floor</h3>
+                    <p class="floor-range">Dorms: 000-040</p>
+                    <div class="occupancy">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <span>85% Occupied</span>
+                    </div>
+                    <p class="available-beds">18 Beds Available</p>
+                </div>
+                <!-- Floor 1 -->
+                <div class="floor-card">
+                    <h3>1st Floor</h3>
+                    <p class="floor-range">Dorms: 100-140</p>
+                    <div class="occupancy">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                        <span>92% Occupied</span>
+                    </div>
+                    <p class="available-beds">12 Beds Available</p>
+                </div>
+                <!-- Floor 2 -->
+                <div class="floor-card">
+                    <h3>2nd Floor</h3>
+                    <p class="floor-range">Dorms: 200-240</p>
+                    <div class="occupancy">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 78%"></div>
+                        </div>
+                        <span>78% Occupied</span>
+                    </div>
+                    <p class="available-beds">32 Beds Available</p>
+                </div>
+                <!-- Floor 3 -->
+                <div class="floor-card">
+                    <h3>3rd Floor</h3>
+                    <p class="floor-range">Dorms: 300-340</p>
+                    <div class="occupancy">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                        <span>95% Occupied</span>
+                    </div>
+                    <p class="available-beds">9 Beds Available</p>
+                </div>
+                <!-- Floor 4 -->
+                <div class="floor-card">
+                  <h3>4th Floor</h3>
+                    <p class="floor-range">Dorms: 400-440</p>
+                    <div class="occupancy">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                        <span>70% Occupied</span>
+                    </div>
+                    <p class="available-beds">48 Beds Available</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Announcements -->
+        <section class="announcements">
+            <h2 class="section-title">Recent Announcements</h2>
+            <div class="announcement-list">
+                <div class="announcement">
+                    <div class="announcement-date">Dec 21, 2024</div>
+                    <h3>Dorm Application Deadline</h3>
+                    <p>Last date to apply for Semester 2 dorm allocation is January 15, 2025.</p>
+                </div>
+                <div class="announcement">
+                    <div class="announcement-date">Dec 18, 2024</div>
+                    <h3>Maintenance Schedule</h3>
+                    <p>Dorm 120-140 will undergo maintenance from Dec 25-30, 2024.</p>
+                </div>
+                <div class="announcement">
+                    <div class="announcement-date">Dec 15, 2024</div>
+                    <h3>New Online System</h3>
+                    <p>The new dorm management system is now live. All applications must be submitted online.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Addis Ababa University</h3>
+                    <p>Dormitory Management System</p>
+                    <p>Simplifying student accommodation since 2024</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 6 Kilo, Addis Ababa</p>
+                    <p><i class="fas fa-phone"></i> +251 11 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> dorm@aau.edu.et</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="apply.html">Apply</a>
+                    <a href="status.html">Check Status</a>
+                    <a href="admin.html">Admin Login</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Addis Ababa University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

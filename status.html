@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Application Status - AAU Dorm Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="university-info">
+                    <img src="assets/images/aau logo 1.jpg"
+                         alt="AAU Logo" class="logo">
+                    <div class="university-name">
+                        <h1>ADDIS ABABA UNIVERSITY</h1>
+                        <p class="university-subtitle">Application Status Check</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="dorm-availability.html"><i class="fas fa-bed"></i> Dorm Availability</a></li>
+                        <li><a href="apply.html"><i class="fas fa-edit"></i> Apply for Dorm</a></li>
+                        <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+                        <li><a href="status.html" class="active"><i class="fas fa-search"></i> Check Status</a></li>
+                        <li><a href="waiting-list.html"><i class="fas fa-list"></i> Waiting List</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <div class="form-container">
+            <h1 class="form-title">Check Application Status</h1>
+            
+            <div class="search-box" style="margin-bottom: 0;">
+                <div class="search-form">
+                    <input type="text" class="search-input" id="applicationId" placeholder="Enter Application ID">
+                    <button class="search-btn" onclick="checkStatus()">
+                        <i class="fas fa-search"></i> Check Status
+                    </button>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin: 15px 0; color: #666;">
+                Enter your Application ID to check the status of your dorm application
+            </p>
+            
+            <!-- Status Result -->
+            <div id="statusResult" style="display: none; margin-top: 30px;">
+                <div class="info-card">
+                    <h3 id="resultTitle">Application Status</h3>
+                    <div id="resultContent">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sample Application IDs -->
+            <div class="info-card" style="margin-top: 30px;">
+                <h3><i class="fas fa-info-circle"></i> Sample Application IDs</h3>
+                <p style="margin: 10px 0 5px;">For testing purposes, you can use:</p>
+                <ul style="color: #666; margin-left: 20px;">
+                    <li><strong>APP-983245</strong> - Pending Application</li>
+                    <li><strong>APP-983244</strong> - Approved Application</li>
+                    <li><strong>APP-983243</strong> - Rejected Application</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- FAQs -->
+        <div class="announcements" style="margin-top: 40px;">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="announcement-list">
+                <div class="announcement">
+                    <h3>How long does it take to process an application?</h3>
+                    <p>Applications are typically processed within 3-5 working days. You will receive an email notification once your application status changes.</p>
+                </div>
+                <div class="announcement">
+                    <h3>What should I do if my application is approved?</h3>
+                    <p>If approved, you will receive dorm allocation details via email. You must report to the allocated dorm within 7 days with your student ID and approval letter.</p>
+                </div>
+                <div class="announcement">
+                    <h3>Can I change my dorm preference after applying?</h3>
+                    <p>Dorm preference changes can only be made while the application is in "Pending" status. Contact the dorm administration office for assistance.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Addis Ababa University</h3>
+                    <p>Dormitory Management System</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 6 Kilo, Addis Ababa</p>
+                    <p><i class="fas fa-phone"></i> +251 11 123 4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="apply.html">Apply</a>
+                    <a href="status.html">Check Status</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Addis Ababa University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample application data
+        const applications = {
+            'APP-983245': {
+                status: 'Pending',
+                studentName: 'Mikias Lemma',
+                studentId: 'UGR/2022/14',
+                appliedDate: '2024-12-20',
+                expectedDate: '2024-12-27',
+                message: 'Your application is under review. Please check back in 3-5 working days.'
+            },
+            'APP-983244': {
+                status: 'Approved',
+                studentName: 'Selamawit Tesfaye',
+                studentId: 'UGR/2023/08',
+                appliedDate: '2024-12-20',
+                approvedDate: '2024-12-21',
+                dormNumber: '112',
+                bedNumber: '3',
+                floor: '1st Floor',
+                checkInBy: '2024-12-28',
+                message: 'Your application has been approved! Please report to dorm 112, bed 3 on 1st floor by Dec 28, 2024.'
+            },
+            'APP-983243': {
+                status: 'Rejected',
+                studentName: 'Abebe Kebede',
+                studentId: 'UGR/2021/22',
+                appliedDate: '2024-12-19',
+                rejectedDate: '2024-12-20',
+                reason: 'Incomplete documentation',
+                message: 'Your application was rejected due to incomplete documentation. Please reapply with complete documents.'
+            }
+        };
+
+        function checkStatus() {
+            const appId = document.getElementById('applicationId').value.trim().toUpperCase();
+            const resultDiv = document.getElementById('statusResult');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultContent = document.getElementById('resultContent');
+            
+            if (!appId) {
+                alert('Please enter an Application ID');
+                return;
+            }
+            
+            const app = applications[appId];
+            
+            if (app) {
+                resultTitle.textContent = Application Status: ${app.status};
+                
+                let content = 
+                    <div style="margin: 15px 0;">
+                        <p><strong>Application ID:</strong> ${appId}</p>
+                        <p><strong>Student Name:</strong> ${app.studentName}</p>
+                        <p><strong>Student ID:</strong> ${app.studentId}</p>
+                        <p><strong>Applied Date:</strong> ${app.appliedDate}</p>
+                ;
+                
+                if (app.status === 'Pending') {
+                    content += 
+                        <p><strong>Expected Decision By:</strong> ${app.expectedDate}</p>
+                        <div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                            <p><strong>Status:</strong> <span style="color: #856404;">${app.status}</span></p>
+                            <p>${app.message}</p>
+                        </div>
+                    ;
+                } else if (app.status === 'Approved') {
+                    content += 
+                        <p><strong>Approved Date:</strong> ${app.approvedDate}</p>
+                        <p><strong>Dorm Number:</strong> ${app.dormNumber}</p>
+                        <p><strong>Bed Number:</strong> ${app.bedNumber}</p>
+                        <p><strong>Floor:</strong> ${app.floor}</p>
+                        <p><strong>Check-in By:</strong> ${app.checkInBy}</p>
+                        <div style="background: #d4edda; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                            <p><strong>Status:</strong> <span style="color: #155724;">${app.status}</span></p>
+                            <p>${app.message}</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="printAllocation('${appId}')">
+                            <i class="fas fa-print"></i> Print Allocation Letter
+                        </button>
+                    ;
+                } else if (app.status === 'Rejected') {
+                    content += 
+                        <p><strong>Rejected Date:</strong> ${app.rejectedDate}</p>
+                        <p><strong>Reason:</strong> ${app.reason}</p>
+                        <div style="background: #f8d7da; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                            <p><strong>Status:</strong> <span style="color: #721c24;">${app.status}</span></p>
+                            <p>${app.message}</p>
+                        </div>
+                        <a href="apply.html" class="btn btn-primary">
+                            <i class="fas fa-redo"></i> Reapply
+                        </a>
+                    ;
+                }
+                
+                content += '</div>';
+                resultContent.innerHTML = content;
+                resultDiv.style.display = 'block';
+            } else {
+                resultTitle.textContent = 'Application Not Found';
+                resultContent.innerHTML = `
+                    <div style="text-align: center; padding: 20px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: #ffc107;"></i>
+                        <p style="margin: 15px 0;">No application found with ID: ${appId}</p>
+                        <p>Please check the Application ID and try again.</p>
+                        <a href="apply.html" class="btn btn-primary" style="margin-top: 15px;">
+                            <i class="fas fa-edit"></i> Apply Now
+                        </a>
+                    </div>
+                ;
+                resultDiv.style.display = 'block';
+            }
+        }
+
+        function printAllocation(appId) {
+            const app = applications[appId];
+            if (app) {
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(
+                    <html>
+                    <head>
+                        <title>Dorm Allocation - ${appId}</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; margin: 40px; }
+                            .header { text-align: center; margin-bottom: 30px; }
+                            .logo { width: 80px; height: 80px; }
+                            .content { margin: 20px 0; }
+                            .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #666; }
+                            table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+                            th, td { padding: 10px; border: 1px solid #ddd; }
+                            th { background: #f5f5f5; }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="header">
+                            <h1>Addis Ababa University</h1>
+                            <h2>Dormitory Allocation Letter</h2>
+                        </div>
+                        <div class="content">
+                            <p><strong>Application ID:</strong> ${appId}</p>
+                            <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
+                            <hr>
+                            <p>Dear ${app.studentName},</p>
+                            <p>Your dormitory application has been approved. Here are your allocation details:</p>
+                            <table>
+                                <tr><th>Student ID</th><td>${app.studentId}</td></tr>
+                                <tr><th>Dorm Number</th><td>${app.dormNumber}</td></tr>
+                                <tr><th>Bed Number</th><td>${app.bedNumber}</td></tr>
+                                <tr><th>Floor</th><td>${app.floor}</td></tr>
+                                <tr><th>Check-in Deadline</th><td>${app.checkInBy}</td></tr>
+                            </table>
+                            <p><strong>Instructions:</strong></p>
+                            <ol>
+                                <li>Report to the dormitory office with this letter and your student ID</li>
+                                <li>Check-in must be completed by ${app.checkInBy}</li>
+                                <li>Bring your personal belongings and bedding</li>
+                                <li>Sign the dormitory agreement form upon arrival</li>
+                            </ol>
+                        </div>
+                        <div class="footer">
+                            <p>Addis Ababa University Dormitory Management System</p>
+                            <p>6 Kilo, Addis Ababa | Phone: +251 11 123 4567</p>
+                            <p>This is an auto-generated document. No signature required.</p>
+                        </div>
+                    </body>
+                    </html>
+                `);
+                printWindow.document.close();
+                printWindow.print();
+            }
+        }
+
+        // Allow Enter key to trigger search
+        document.getElementById('applicationId').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkStatus();
+            }
+        });
+    </script>
+</body>
+</html>

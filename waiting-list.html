@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiting List - AAU Dorm Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="university-info">
+                    <img src="assets/images/aau logo 1.jpg" 
+                         alt="AAU Logo" class="logo">
+                    <div class="university-name">
+                        <h1>ADDIS ABABA UNIVERSITY</h1>
+                        <p class="university-subtitle">Waiting List Management</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="dorm-availability.html"><i class="fas fa-bed"></i> Dorm Availability</a></li>
+                        <li><a href="apply.html"><i class="fas fa-edit"></i> Apply for Dorm</a></li>
+                        <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+                        <li><a href="status.html"><i class="fas fa-search"></i> Check Status</a></li>
+                        <li><a href="waiting-list.html" class="active"><i class="fas fa-list"></i> Waiting List</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <h1 class="section-title">Waiting List Management</h1>
+        
+        <!-- Waiting List Statistics -->
+        <div class="cards-grid">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3 id="waitingCount">89</h3>
+                <p>Total in Waiting List</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-user-clock"></i>
+                <h3 id="averageWait">15</h3>
+                <p>Average Wait (Days)</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3 id="allocationRate">12</h3>
+                <p>Allocations This Week</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chart-line"></i>
+                <h3 id="estimatedWait">7</h3>
+                <p>Estimated Wait (Days)</p>
+            </div>
+        </div>
+
+        <!-- Check Your Position -->
+        <div class="form-container" style="margin: 30px auto;">
+            <h2 style="color: #0066CC; margin-bottom: 20px; text-align: center;">
+                <i class="fas fa-search"></i> Check Your Waiting List Position
+            </h2>
+            <div class="search-form">
+                <input type="text" class="search-input" id="waitingAppId" placeholder="Enter your Application ID">
+                <button class="search-btn" onclick="checkWaitingPosition()">
+                    <i class="fas fa-search"></i> Check Position
+                </button>
+            </div>
+            <div id="positionResult" style="display: none; margin-top: 20px; text-align: center;">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+        <!-- Waiting List Table -->
+        <div class="table-container">
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Application ID</th>
+                            <th>Student Name</th>
+                            <th>Student ID</th>
+                            <th>Applied Date</th>
+                            <th>Days Waiting</th>
+                            <th>Estimated Allocation</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="waitingTable">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Waiting List Information -->
+        <div class="announcements" style="margin-top: 40px;">
+            <h2 class="section-title">Waiting List Information</h2>
+            <div class="announcement-list">
+                <div class="announcement">
+                    <h3><i class="fas fa-info-circle"></i> How the Waiting List Works</h3>
+                    <p>Students are placed on the waiting list when all dorms are full. Positions are determined by application date and time, with priority given to:</p>
+                    <ul>
+                        <li>Students with disabilities</li>
+                        <li>International students</li>
+                        <li>Students from distant regions</li>
+                        <li>First-year students (on first-come, first-served basis)</li>
+                    </ul>
+                </div>
+                <div class="announcement">
+                    <h3><i class="fas fa-bell"></i> Notification Process</h3>
+                    <p>When a bed becomes available, we contact students in order of their waiting list position via:</p>
+                    <ul>
+                        <li>Email notification to your registered email address</li>
+                        <li>SMS to your registered phone number</li>
+                        <li>University portal announcement</li>
+                    </ul>
+                    <p><strong>Important:</strong> You must respond within 48 hours to accept the allocation.</p>
+                </div>
+                <div class="announcement">
+                    <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                    <p><strong>Q: How often is the waiting list updated?</strong><br>
+                    A: The waiting list is updated in real-time as allocations are made.</p>
+                    <p><strong>Q: Can I check my position online?</strong><br>
+                    A: Yes, use the search box above with your Application ID.</p>
+                    <p><strong>Q: What if I miss the notification?</strong><br>
+                    A: If you don't respond within 48 hours, the offer goes to the next student.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Addis Ababa University</h3>
+                    <p>Dormitory Management System</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 6 Kilo, Addis Ababa</p>
+                    <p><i class="fas fa-phone"></i> +251 11 123 4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="apply.html">Apply</a>
+                    <a href="status.html">Check Status</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Addis Ababa University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample waiting list data
+        const waitingListData = [
+            { position: 1, appId: 'APP-983201', name: 'Mikias Lemma', studentId: 'UGR/2022/14', appliedDate: '2024-12-01', daysWaiting: 20, estimatedDate: '2024-12-22' },
+            { position: 2, appId: 'APP-983202', name: 'Selamawit Tesfaye', studentId: 'UGR/2023/08', appliedDate: '2024-12-02', daysWaiting: 19, estimatedDate: '2024-12-23' },
+            { position: 3, appId: 'APP-983203', name: 'Abebe Kebede', studentId: 'UGR/2021/22', appliedDate: '2024-12-03', daysWaiting: 18, estimatedDate: '2024-12-24' },
+            { position: 4, appId: 'APP-983204', name: 'Hana Mohammed', studentId: 'UGR/2022/15', appliedDate: '2024-12-04', daysWaiting: 17, estimatedDate: '2024-12-25' },
+            { position: 5, appId: 'APP-983205', name: 'Yohannes Assefa', studentId: 'UGR/2024/03', appliedDate: '2024-12-05', daysWaiting: 16, estimatedDate: '2024-12-26' },
+            { position: 6, appId: 'APP-983206', name: 'Meron Alemu', studentId: 'UGR/2023/12', appliedDate: '2024-12-06', daysWaiting: 15, estimatedDate: '2024-12-27' },
+            { position: 7, appId: 'APP-983207', name: 'Teshome Girma', studentId: 'UGR/2022/18', appliedDate: '2024-12-07', daysWaiting: 14, estimatedDate: '2024-12-28' },
+            { position: 8, appId: 'APP-983208', name: 'Rahel Asnake', studentId: 'UGR/2021/25', appliedDate: '2024-12-08', daysWaiting: 13, estimatedDate: '2024-12-29' },
+            { position: 9, appId: 'APP-983209', name: 'Dawit Solomon', studentId: 'UGR/2023/07', appliedDate: '2024-12-09', daysWaiting: 12, estimatedDate: '2024-12-30' },
+            { position: 10, appId: 'APP-983210', name: 'Eyerusalem Tadesse', studentId: 'UGR/2022/11', appliedDate: '2024-12-10', daysWaiting: 11, estimatedDate: '2024-12-31' }
+        ];
+
+        function populateWaitingTable() {
+            const tableBody = document.getElementById('waitingTable');
+            tableBody.innerHTML = '';
+
+            waitingListData.forEach(item => {
+                const row = 
+                    <tr>
+                        <td><strong>${item.position}</strong></td>
+                        <td>${item.appId}</td>
+                        <td>${item.name}</td>
+                        <td>${item.studentId}</td>
+                        <td>${item.appliedDate}</td>
+                        <td>${item.daysWaiting} days</td>
+                        <td>${item.estimatedDate}</td>
+                        <td>
+                            ${item.position <= 5 ? 
+                                '<span class="status-badge status-waiting" style="background: #d4edda; color: #155724;">High Priority</span>' :
+                                '<span class="status-badge status-waiting">Waiting</span>'
+                            }
+                        </td>
+                    </tr>
+                ;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function checkWaitingPosition() {
+            const appId = document.getElementById('waitingAppId').value.trim().toUpperCase();
+            const resultDiv = document.getElementById('positionResult');
+            
+            if (!appId) {
+                alert('Please enter your Application ID');
+                return;
+            }
+            
+            const student = waitingListData.find(item => item.appId === appId);
+            
+            if (student) {
+                resultDiv.innerHTML = 
+                    <div class="info-card" style="text-align: left;">
+                      <h3 style="color: #0066CC;">Waiting List Position: #${student.position}</h3>
+                        <p><strong>Application ID:</strong> ${student.appId}</p>
+                        <p><strong>Student Name:</strong> ${student.name}</p>
+                        <p><strong>Student ID:</strong> ${student.studentId}</p>
+                        <p><strong>Applied Date:</strong> ${student.appliedDate}</p>
+                        <p><strong>Days Waiting:</strong> ${student.daysWaiting} days</p>
+                        <p><strong>Estimated Allocation Date:</strong> ${student.estimatedDate}</p>
+                        ${student.position <= 10 ? 
+                            <div style="background: #d4edda; padding: 15px; border-radius: 5px; margin-top: 15px;">
+                                <p><i class="fas fa-info-circle"></i> <strong>Good news!</strong> You are in the top 10. You should receive allocation soon.</p>
+                            </div> :
+                            <div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin-top: 15px;">
+                                <p><i class="fas fa-clock"></i> <strong>Please be patient.</strong> You are currently at position ${student.position}. We'll notify you when a bed becomes available.</p>
+                            </div>
+                        }
+                    </div>
+                ;
+                resultDiv.style.display = 'block';
+            } else {
+                // Check if it's an approved application
+                const approvedApps = ['APP-983244', 'APP-983242'];
+                if (approvedApps.includes(appId)) {
+                    resultDiv.innerHTML = 
+                        <div class="info-card" style="text-align: center;">
+                            <i class="fas fa-check-circle" style="font-size: 48px; color: #28a745;"></i>
+                            <h3 style="color: #28a745;">Application Already Approved</h3>
+                            <p>Your application has been approved and allocated a dorm.</p>
+                            <p>You are not on the waiting list.</p>
+                            <a href="status.html" class="btn btn-primary" style="margin-top: 15px;">
+                                <i class="fas fa-search"></i> Check Allocation Details
+                            </a>
+                        </div>
+                    ;
+                } else {
+                    resultDiv.innerHTML = 
+                        <div class="info-card" style="text-align: center;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 48px; color: #ffc107;"></i>
+                            <h3>Application Not Found</h3>
+                            <p>No application found with ID: ${appId}</p>
+                            <p>Please check the Application ID and try again.</p>
+                            <a href="apply.html" class="btn btn-primary" style="margin-top: 15px;">
+                                <i class="fas fa-edit"></i> Apply for Dorm
+                            </a>
+                        </div>
+                    ;
+                }
+                resultDiv.style.display = 'block';
+            }
+        }
+
+        function updateStatistics() {
+            // Update waiting count
+            document.getElementById('waitingCount').textContent = waitingListData.length;
+            
+            // Calculate average wait time
+            const avgWait = Math.round(waitingListData.reduce((sum, item) => sum + item.daysWaiting, 0) / waitingListData.length);
+            document.getElementById('averageWait').textContent = avgWait;
+            
+            // Simulate weekly allocation rate (this would come from backend)
+            document.getElementById('allocationRate').textContent = '12';
+            // Estimate wait time for new applicants (position 89 * avg allocation rate)
+            const estimatedWait = Math.round((waitingListData.length * avgWait) / 12);
+            document.getElementById('estimatedWait').textContent = estimatedWait;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            populateWaitingTable();
+            updateStatistics();
+            
+            // Allow Enter key to trigger search
+            document.getElementById('waitingAppId').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkWaitingPosition();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
