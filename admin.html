@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AAU Dorm Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="university-info">
+                    <img src="assets/images/aau logo 1.jpg" 
+                         alt="AAU Logo" class="logo">
+                    <div class="university-name">
+                        <h1>ADDIS ABABA UNIVERSITY</h1>
+                        <p class="university-subtitle">Admin Dashboard</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="dorm-availability.html"><i class="fas fa-bed"></i> Dorm Availability</a></li>
+                        <li><a href="apply.html"><i class="fas fa-edit"></i> Apply for Dorm</a></li>
+                        <li><a href="admin.html" class="active"><i class="fas fa-user-shield"></i> Admin</a></li>
+                        <li><a href="status.html"><i class="fas fa-search"></i> Check Status</a></li>
+                        <li><a href="waiting-list.html"><i class="fas fa-list"></i> Waiting List</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <div class="admin-dashboard">
+            <!-- Admin Sidebar -->
+            <div class="admin-sidebar">
+                <h3><i class="fas fa-tachometer-alt"></i> Admin Panel</h3>
+                <div class="admin-nav">
+                    <ul>
+                        <li><a href="#" class="active"><i class="fas fa-chart-bar"></i> Dashboard</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Student Management</a></li>
+                        <li><a href="#"><i class="fas fa-building"></i> Dorm Management</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> Applications</a></li>
+                        <li><a href="#"><i class="fas fa-list-ol"></i> Waiting List</a></li>
+                        <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+                        <li><a href="#"><i class="fas fa-file-export"></i> Reports</a></li>
+                        <li><a href="#"><i class="fas fa-user-cog"></i> User Management</a></li>
+                        <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Admin Content -->
+            <div class="admin-content">
+                <h2 class="section-title">Dashboard Overview</h2>
+                
+                <!-- Statistics Cards -->
+                <div class="cards-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>1,200</h3>
+                        <p>Total Students</p>
+                        <small>+12 this week</small>
+                        </div>
+                    <div class="stat-card">
+                        <i class="fas fa-bed"></i>
+                        <h3>179</h3>
+                        <p>Available Beds</p>
+                        <small>7.5% vacancy</small>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>45</h3>
+                        <p>Pending Applications</p>
+                        <small>Require review</small>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-list-ol"></i>
+                        <h3>89</h3>
+                        <p>Waiting List</p>
+                        <small>Awaiting allocation</small>
+                    </div>
+                </div>
+
+                <!-- Recent Applications -->
+                <h3 style="margin: 30px 0 20px; color: #333;">Recent Applications</h3>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>App ID</th>
+                                    <th>Student Name</th>
+                                    <th>Student ID</th>
+                                    <th>Applied Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>APP-983245</td>
+                                    <td>Mikias Lemma</td>
+                                    <td>UGR/2022/17</td>
+                                    <td>2025-12-20</td>
+                                    <td><span class="status-badge status-waiting">Pending</span></td>
+                                    <td>
+                                        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>APP-983244</td>
+                                    <td>Selamawit Tesfaye</td>
+                                    <td>UGR/2023/16</td>
+                                    <td>2025-12-27</td>
+                                    <td><span class="status-badge status-available">Approved</span></td>
+                                    <td>
+                                        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>APP-983243</td>
+                                    <td>Abebe Kebede</td>
+                                    <td>UGR/2021/18</td>
+                                    <td>2025-12-19</td>
+                                    <td><span class="status-badge status-full">Rejected</span></td>
+                                    <td>
+                                        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>APP-983242</td>
+                                    <td>Hana Mohammed</td>
+                                    <td>UGR/4565/15</td>
+                                    <td>2025-12-15</td>
+                                    <td><span class="status-badge status-available">Approved</span></td>
+                                    <td>
+                                        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>APP-983241</td>
+                                    <td>Yohannes Assefa</td>
+                                    <td>UGR/6756/16</td>
+                                    <td>2025-12-18</td>
+                                    <td><span class="status-badge status-waiting">Pending</span></td>
+                                    <td>
+                                        <button class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">
+                                            <i class="fas fa-eye"></i> View
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <h3 style="margin: 30px 0 20px; color: #333;">Quick Actions</h3>
+                <div class="quick-links">
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Add New Student</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-building"></i>
+                        <span>Manage Dorms</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-file-import"></i>
+                        <span>Bulk Import</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-file-export"></i>
+                        <span>Export Reports</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-tools"></i>
+                        <span>Maintenance</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-bell"></i>
+                        <span>Send Notifications</span>
+                    </a>
+                </div>
+
+                <!-- System Status -->
+                <div class="info-card" style="margin-top: 30px;">
+                    <h3><i class="fas fa-server"></i> System Status</h3>
+                    <div style="margin-top: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Database Connection</span>
+                            <span style="color: #28a745;"><i class="fas fa-check-circle"></i> Connected</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Last Backup</span>
+                            <span>2024-12-20 23:00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Active Users</span>
+                            <span>24</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>System Uptime</span>
+                            <span>99.8%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Addis Ababa University</h3>
+                    <p>Dormitory Management System</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 6 Kilo, Addis Ababa</p>
+                    <p><i class="fas fa-phone"></i> +251 11 123 4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Admin Links</h3>
+                    <a href="#">Dashboard</a>
+                    <a href="#">Reports</a>
+                    <a href="#">Settings</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Addis Ababa University. Admin Panel v1.0</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+dorm-management-system/
+├── user-portal/                    # Student/User Portal
+│   ├── index.html                  # Homepage
+│   ├── apply.html                  # Application form
+│   ├── dorm-availability.html
+│   ├── status.html                 # Application status
+│   ├── waiting-list.html
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── main.js
+│
+├── admin-portal/                   # Admin Portal
+│   ├── index.html                  # Admin login
+│   ├── dashboard.html              # Admin dashboard
+│   ├── student-management.html
+│   ├── dorm-management.html
+│   ├── applications.html
+│   ├── waiting-list-admin.html
+│   ├── reports.html
+│   ├── settings.html
+│   ├── css/
+│   │   └── admin.css
+│   └── js/
+│       └── admin.js
+│
+└── index.html                      # Landing page (Choose Portal)
